@@ -1,0 +1,64 @@
+@media (max-width: 830px) {
+    /* CABEÇALHO */
+
+    nav div.sideBar {
+        padding-top: 1rem;
+        cursor: pointer;
+        display: block;
+        margin: 1rem;
+        z-index: 1;
+    }
+
+    .menu {
+        position: absolute;
+        top: 4vh;
+        right: 0;
+        width: 50vw;
+        height: 20vh;
+        background-color: black;
+        flex-direction: column;
+    }
+
+    nav.active .menu {
+        clip-path: circle(1500px at 90% -16%);
+        pointer-events: all;
+    }
+
+    nav.active .sideBar {
+        position: fixed;
+        top: 0.2%;
+        right: 10%;
+        overflow-y: hidden;
+        z-index: 3;
+    }
+
+    /* CORPO HORARIOS */
+
+    section {
+        width: 100%;
+    }
+
+    .barbeiroB {
+        margin-top: 1rem;
+    }
+
+    .agendamentos li {
+        padding-bottom: 1rem;
+    }
+
+    /* CORPO SOBRE NOS */
+
+    .img-barbearia {
+        width: 390%;
+        top: -70px;
+        left: -170%;
+        z-index: -2;
+    }
+
+    .redesSociais {
+        flex-direction: column;
+        width: 60%;
+        margin-inline-start: 20.5%;
+        margin-inline-end: 79.5%;
+    }
+}
