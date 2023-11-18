@@ -2,6 +2,7 @@
 @section('tela', 'AGENDAMENTO')
 @section('title', 'Meus Agendamentos')
 @section('page3', 'text-info')
+
 @section('content')
     @include('layouts.header')
 
@@ -16,8 +17,8 @@
         <tbody class="table-ligth">
             @foreach ($schedulings as $scheduling)
                 <tr>
-                    <td>1</td>
-                    <td>Caio</td>
+                    <td>{{ $scheduling->title }}{{ $scheduling->barber}}</td>
+                    <td>{{ $scheduling->title }}{{ $scheduling['nome_de_usuario']}}</td>
                     <td>{{ $scheduling->title }}{{ $scheduling->time}}</td>
                     <td>{{ $scheduling->title }}{{ $scheduling->date}}</td>
                     <td>Ativo</td>

@@ -41,8 +41,5 @@ Route::middleware([
 Route::get('/agendamento', function () {
     return view('agendamento');
 })->name('ag');
-Route::get('/agendamento/{barber}/horario', function () {
-    return view('horario');
-});
-Route::get('/meusAgendamentos', [SchedulingController::class, 'index'])->name('MyAg');
-Route::post('/agendamento', [SchedulingController::class,'store'])->name('ag');
+Route::get('/meusAgendamentos', [SchedulingController::class, 'index']);
+Route::post('/agendar', [SchedulingController::class,'store']);

@@ -46,8 +46,6 @@
                                     <a href="/conta" class="nav-link fw-bold">Conta</a>
                                 </li>
                             @endauth
-                            
-                           
                         </ul>
                     </div>
                 </div>

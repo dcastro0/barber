@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <a href="/"><img src="/img/logo.png" width="100vh;"></a>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -14,7 +14,7 @@
             @csrf
 
             <div>
-                <x-label for="password" value="{{ __('Password') }}" />
+                <x-label for="password" value="{{ __('Senha') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" autofocus />
             </div>
 
