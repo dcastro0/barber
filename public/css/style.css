@@ -7,6 +7,7 @@ body {
     background-size: cover;
     font-family: 'Monaco', monospace;
     min-height: 100vh;
+    font-weight: bold;
 }
 main {
     min-height: 75vh;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,14 +13,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\UserController;
+use App\Http\Kernel;
 use App\Http\Controllers\SchedulingController;
 use App\Models\Scheduling;
 
 Route::get('/', function(){
     return view('welcome');
-});
+})->middleware('auth');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -27,7 +27,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('welcome');
-    })->name('dashboard');
+    })->name('dashboard')->middleware('auth');
 });
 Route::middleware([
     'auth:sanctum',
@@ -36,11 +36,15 @@ Route::middleware([
 ])->group(function () {
     Route::get('/conta', function () {
         return view('dashboard');
-    })->name('conta');
+    })->name('conta')->middleware('auth');
 });
 Route::get('/agendamento', function () {
     return view('agendamento');
-})->name('ag');
-Route::get('/meusAgendamentos', [SchedulingController::class, 'index'])->name('myAg');
-Route::post('/agendar', [SchedulingController::class,'store']);
-Route::delete('/deletar/{id}', [SchedulingController::class,'destroy'])->name('del');
+})->name('ag')->middleware('auth');
+Route::get('/meusAgendamentos', [SchedulingController::class, 'index'])->name('myAg')->middleware('auth');
+Route::post('/agendar', [SchedulingController::class,'store'])->middleware('auth');
+Route::delete('/deletar/{id}', [SchedulingController::class,'destroy'])->name('del')->middleware('auth');
+Route::middleware(['checkUserRole'])->group(function () {
+    Route::get('/gerenciadorBarbeiro', [SchedulingController::class,'barber'])->name('gerenciar')->middleware('auth');
+});
+Route::put('/editar/{id}', [SchedulingController::class,'update'])->name('atualizar.dado')->middleware('auth');

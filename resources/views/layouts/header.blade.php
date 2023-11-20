@@ -32,18 +32,20 @@
                                     <a href="/meusAgendamentos" class="nav-link fw-bold @yield('page3')">Meus Agendamentos</a>
                                 </li>
                             @endauth
-                            <li class="nav-item">
-                                <a href="#" class="nav-link fw-bold @yield('page4')">Sobre nós e Contato</a>
-                            </li>
+                            
                             @guest
                                 <li class="nav-item">
                                     <a href="/login" class="nav-link fw-bold @yield('page5')">Login</a>
                                 </li>
-                                
                             @endguest
                             @auth
                                 <li class="nav-item">
                                     <a href="/conta" class="nav-link fw-bold">Conta</a>
+                                </li>
+                            @endauth
+                            @auth
+                                <li class="nav-item">
+                                    <a href="{{ route('gerenciar') }}" class="nav-link fw-bold @yield('page4')">Barbeiro</a>
                                 </li>
                             @endauth
                         </ul>

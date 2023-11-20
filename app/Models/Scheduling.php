@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Scheduling extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        // outros campos
+        'status',
+    ];
 }

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Log;
+use Carbon\Carbon;
 use App\Models\Scheduling;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 
 class SchedulingController extends Controller
 {
@@ -75,7 +76,13 @@ class SchedulingController extends Controller
         } else {
             return true; // Não existe agendamento com a mesma data, horário e barbeiro
         }
-            }
+    }
+    public function barber(){
+        $schedulings = Scheduling::join('users','schedulings.id_user','=','users.id')->select('schedulings.*', 'users.name as nome_de_usuario')->get();
+        
+        return view('gerenciadorBarbeiro', ['schedulings' => $schedulings]);
+
+    }
 
 
     
@@ -85,15 +92,18 @@ class SchedulingController extends Controller
     }
 
     
-    public function edit(Scheduling $scheduling)
+    public function edit(Scheduling $scheduling, $id, $status)
     {
-        //
+       
     }
 
     
-    public function update(Request $request, Scheduling $scheduling)
+    public function update(Request $request, Scheduling $scheduling, $id)
     {
-        //
+        $scheduling = Scheduling::findOrFail($id);
+        $scheduling->update(['status' => $request->status]);
+
+        return redirect()->route('gerenciar')->with('mensagem', 'Alteração confirmada');
     }
 
     
