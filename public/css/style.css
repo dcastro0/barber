@@ -5,8 +5,13 @@
 body {
     background-image: url("/img/barbearia.jpg");
     background-size: cover;
+    font-family: 'Monaco', monospace;
+    min-height: 100vh;
 }
-button {
+main {
+    min-height: 75vh;
+}
+.buttonMargin {
     margin: 2vh;  
 }
 .center {
@@ -26,4 +31,14 @@ button {
 }
 .label {
     font-size: large;
+}
+th {
+    text-align: center;
+}
+td {
+    text-align: center;
+}
+.btn-del {
+    margin-top: -0.25vh;
+    margin-bottom: -0.25vh;    
 }

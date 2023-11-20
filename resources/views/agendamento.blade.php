@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-dark">Agendar</button>
+                    <button type="submit" class="btn btn-dark buttonMargin btn-lg">Agendar</button>
                 </div>
             </form>
             @if(session('mensagem'))

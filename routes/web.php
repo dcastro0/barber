@@ -41,5 +41,6 @@ Route::middleware([
 Route::get('/agendamento', function () {
     return view('agendamento');
 })->name('ag');
-Route::get('/meusAgendamentos', [SchedulingController::class, 'index']);
+Route::get('/meusAgendamentos', [SchedulingController::class, 'index'])->name('myAg');
 Route::post('/agendar', [SchedulingController::class,'store']);
+Route::delete('/deletar/{id}', [SchedulingController::class,'destroy'])->name('del');

@@ -78,36 +78,29 @@ class SchedulingController extends Controller
             }
 
 
-    /**
-     * Display the specified resource.
-     */
+    
     public function show(Scheduling $scheduling)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(Scheduling $scheduling)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    
     public function update(Request $request, Scheduling $scheduling)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Scheduling $scheduling)
+    
+    public function destroy(Scheduling $scheduling, $id)
     {
-        //
+        Scheduling::findOrfail($id)->delete();
+        return redirect()->route('myAg')->with('mensagem','Agendamento excluído.');
     }
 
     
