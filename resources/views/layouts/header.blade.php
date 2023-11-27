@@ -19,32 +19,32 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
+                            <li class="nav-item hover">
                                 <a href="/" class="nav-link fw-bold  @yield('page1') ">Home</a>
                             </li>
                             @auth   
-                                <li class="nav-item">
+                                <li class="nav-item hover">
                                     <a href="/agendamento" class="nav-link fw-bold @yield('page2')">Agendamentos</a>
                                 </li>
                             @endauth
                             @auth   
-                                <li class="nav-item">
+                                <li class="nav-item hover">
                                     <a href="/meusAgendamentos" class="nav-link fw-bold @yield('page3')">Meus Agendamentos</a>
                                 </li>
                             @endauth
                             
                             @guest
-                                <li class="nav-item">
+                                <li class="nav-item hover">
                                     <a href="/login" class="nav-link fw-bold @yield('page5')">Login</a>
                                 </li>
                             @endguest
                             @auth
-                                <li class="nav-item">
+                                <li class="nav-item hover">
                                     <a href="/conta" class="nav-link fw-bold">Conta</a>
                                 </li>
                             @endauth
                             @auth
-                                <li class="nav-item">
+                                <li class="nav-item hover">
                                     <a href="{{ route('gerenciar') }}" class="nav-link fw-bold @yield('page4')">Barbeiro</a>
                                 </li>
                             @endauth

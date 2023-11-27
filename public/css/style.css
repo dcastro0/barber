@@ -43,3 +43,7 @@ td {
     margin-top: -0.25vh;
     margin-bottom: -0.25vh;    
 }
+.hover:hover {
+    color: aliceblue;
+    font-size: larger;
+}

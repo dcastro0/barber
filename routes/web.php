@@ -19,7 +19,7 @@ use App\Models\Scheduling;
 
 Route::get('/', function(){
     return view('welcome');
-})->middleware('auth');
+});
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -27,7 +27,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('welcome');
-    })->name('dashboard')->middleware('auth');
+    })->name('dashboard');
 });
 Route::middleware([
     'auth:sanctum',
